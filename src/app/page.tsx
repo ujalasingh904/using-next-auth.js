@@ -4,22 +4,10 @@ import { useSession, signIn, signOut } from "next-auth/react"
 import Card from "@/components/Card"
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect } from "react"
 
 export default function Component() {
   const { data: session } = useSession()
   console.log(session)
-
-  useEffect(() => {
-    if (!session) {
-      signIn()
-    }
-  }, [session])
-
-  const handleSignOut = () => {
-    signOut()
-    signIn()
-  }
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -46,7 +34,7 @@ export default function Component() {
                     className="rounded-full"
                   />
                   <button
-                    onClick={() => handleSignOut}
+                    onClick={() => signOut()}
                     className="py-2 px-4 bg-red-500 hover:bg-red-600 text-white rounded transition duration-300"
                   >
                     Sign out
@@ -75,17 +63,17 @@ export default function Component() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
           <Card
-
+        
             title="Nature Exploration"
             imageSrc="https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
           />
           <Card
-
+        
             title="Urban Adventure"
             imageSrc="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
           />
           <Card
-
+        
             title="Culinary Delights"
             imageSrc="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
           />
@@ -95,5 +83,5 @@ export default function Component() {
   )
 }
 
-
+ 
 
