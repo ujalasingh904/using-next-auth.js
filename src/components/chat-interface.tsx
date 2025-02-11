@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react" 
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Mic, Plus, Moon, Sun, Menu } from "lucide-react"
@@ -159,20 +159,22 @@ export default function ChatInterface() {
             <Button variant="ghost" size="icon" className="h-8 w-8" onClick={toggleTheme}>
               {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </Button>
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-2 md:space-x-3">
               {session ? (
-                <div className="flex items-center space-x-4">
-                  <span className="text-gray-700">{session.user?.name}</span>
+                <div className="flex items-center space-x-2 md:space-x-4">
+                  <span className="hidden sm:inline text-sm md:text-base text-gray-700">
+                    {session.user?.name}
+                  </span>
                   <Image
                     src={session.user?.image || "/placeholder.svg"}
                     alt="Profile"
                     width={30}
                     height={30}
-                    className="rounded-full"
+                    className="w-6 h-6 md:w-8 md:h-8 rounded-full"
                   />
                   <button
                     onClick={() => signOut()}
-                    className="py-1 px-3 bg-red-500 hover:bg-red-600 text-white rounded transition duration-300"
+                    className="text-xs md:text-sm py-1 px-2 md:px-3 bg-red-500 hover:bg-red-600 text-white rounded transition duration-300"
                   >
                     Sign out
                   </button>
@@ -180,7 +182,7 @@ export default function ChatInterface() {
               ) : (
                 <button
                   onClick={() => signIn()}
-                  className="py-1 px-3 bg-blue-500 hover:bg-blue-600 text-white rounded transition duration-300"
+                  className="text-xs md:text-sm py-1 px-2 md:px-3 bg-blue-500 hover:bg-blue-600 text-white rounded transition duration-300"
                 >
                   Sign in
                 </button>
@@ -196,7 +198,7 @@ export default function ChatInterface() {
                 <Image
                   src={img}
                   alt="XZAYOGN"
-                /> 
+                />
               </div>
               <h2 className="text-lg md:text-xl font-medium">hey i am xzayogn.</h2>
             </div>
