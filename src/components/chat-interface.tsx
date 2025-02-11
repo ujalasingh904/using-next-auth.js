@@ -48,6 +48,7 @@ export default function ChatInterface() {
     <div
       className={`flex h-screen transition-colors duration-200 ${theme === "dark" ? "bg-[#1F1F1F] text-white" : "bg-white"}`}
     >
+      {/* sidebar  */}
 
       <div
         className={`${isSidebarOpen ? "w-full md:w-80" : "w-0"
@@ -137,6 +138,8 @@ export default function ChatInterface() {
         </Button>
       )}
 
+
+      {/* main body */}
       <div className="flex-1 flex flex-col relative">
         <header
           className={`p-3 md:p-4 flex justify-between ${isSidebarOpen ? 'md:justify-end' : 'justify-between'} items-center gap-2 md:gap-4 border-b ${theme === "dark" ? "border-gray-700" : ""
@@ -191,6 +194,8 @@ export default function ChatInterface() {
           </div>
         </header>
 
+        
+
         <main className="flex-1 flex flex-col items-center justify-center p-3 md:p-4">
           <div className="text-center space-y-6 md:space-y-8 max-w-2xl w-full">
             <div className="flex items-center justify-center gap-2 md:gap-3">
@@ -233,6 +238,9 @@ export default function ChatInterface() {
           </div>
         </main>
 
+
+
+       {/* footer section */}
         <footer className="p-3 md:p-4 text-center">
           <div className={`space-x-2 md:space-x-4 text-xs md:text-sm ${theme === "dark" ? "text-gray-400" : "text-gray-500"}`}>
             {["FAQ", "Privacy Policy", "Terms of Service", "Contact Us"].map((text, index, arr) => (
