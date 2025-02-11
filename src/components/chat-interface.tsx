@@ -11,7 +11,8 @@ import img from '../../public/logo.png'
 
 export default function ChatInterface() {
   const [theme, setTheme] = useState<any>(
-    sessionStorage.getItem("theme") || "light")
+    typeof window !== "undefined" ? sessionStorage.getItem("theme") || "light" : "light"
+  )
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
   const { data: session } = useSession()
@@ -33,7 +34,9 @@ export default function ChatInterface() {
     setTheme(theme === "light" ? "dark" : "light")
     document.documentElement.classList.toggle("dark")
     const newTheme = theme === "light" ? "dark" : "light"
-    sessionStorage.setItem("theme", newTheme)
+    if (typeof window !== "undefined") {
+      sessionStorage.setItem("theme", newTheme)
+    }
     setTheme(newTheme)
   }
 
