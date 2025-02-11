@@ -52,7 +52,7 @@ export default function ChatInterface() {
       <div
         className={`${isSidebarOpen ? "w-full md:w-80" : "w-0"
           } fixed md:relative z-30 h-screen transition-all duration-300 overflow-hidden
-        ${theme === "dark" ? "bg-[#2A2A2A]" : "bg-[#74ceff84]"}`}
+        ${theme === "dark" ? "bg-[#2A2A2A]" : "bg-[#ade2ff]"}`}
       >
         <div className={`p-4 border-b ${theme === "dark" ? "border-gray-700" : ""}`}>
           <div className="flex items-center justify-between">
